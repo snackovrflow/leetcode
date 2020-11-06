@@ -1,0 +1,15 @@
+function mergeRanges(meetings) {
+  // Merge meetings ranges
+  let sortedMeetings = meetings.sort((a,b) => a.startTime - b.startTime)
+  let mergedMeetings = [sortedMeetings[0]];
+  for (var i=1; i<sortedMeetings.length; i++) {
+    let currentMeeting = sortedMeetings[i]; 
+    let lastMergedMeeting = mergedMeetings[mergedMeetings.length - 1]
+    if (currentMeeting.startTime <= lastMergedMeeting.endTime) {
+      lastMergedMeeting.endTime = Math.max(lastMergedMeeting.endTime, currentMeeting.endTime)
+    } else {
+      mergedMeetings.push(currentMeeting);
+    }
+  }
+  return mergedMeetings;
+}
