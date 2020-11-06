@@ -1,6 +1,6 @@
 function mergeRanges(meetings) {
   // Merge meetings ranges
-  let sortedMeetings = meetings.sort((a,b) => a.startTime - b.startTime)
+  let sortedMeetings = meetings.sort((a,b) => a.startTime - b.startTime) 
   let mergedMeetings = [sortedMeetings[0]];
   for (var i=1; i<sortedMeetings.length; i++) {
     let currentMeeting = sortedMeetings[i]; 
@@ -13,3 +13,6 @@ function mergeRanges(meetings) {
   }
   return mergedMeetings;
 }
+
+// time: O(n lg n)
+// space: O(n)
